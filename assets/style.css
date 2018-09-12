@@ -1,0 +1,51 @@
+body {
+    text-align: center;
+    background-color: black;
+}
+
+.background-image {
+    background-image: url(https://images4.newscred.com/Zz1hMGJmZWM5MzI4ZjU4ZDJkYTgwZGE4OWNhN2E0ZWU4Yg==);
+    background-size: cover;
+}
+
+#main-container {
+    background-color: beige;
+    opacity: .75;
+    width: 30%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 15%;
+}
+
+h1, h2, h3, p {
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    color: rgb(22, 89, 167);
+    font-style: bold;
+}
+
+p {
+    font-size: 14px;
+    line-height: 0px;
+    margin-top: 40px;
+    font-style: bold;
+}
+
+button {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(86, 142, 206);
+    color: beige;
+    border-width: 1px;
+    opacity: .75;
+}
+
+.hidden {
+    visibility: hidden;
+}
