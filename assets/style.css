@@ -1,20 +1,16 @@
 body {
     text-align: center;
-    background-color: black;
-}
-
-.background-image {
-    background-image: url(https://images4.newscred.com/Zz1hMGJmZWM5MzI4ZjU4ZDJkYTgwZGE4OWNhN2E0ZWU4Yg==);
+    background-color: white;
+    background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/uvwwIgO/rain-drop-with-street-colorful-traffic-lights-at-night-blur-bokeh-abstract-background-vintage-color-tone-cool-chill-wet-raining-season-concept_4wrtrqkqe__F0000.png);
     background-size: cover;
 }
 
-#main-container {
+.container {
     background-color: beige;
     opacity: .75;
     width: 30%;
     margin: auto;
     margin-top: 30px;
-    padding: 10px;
     border-radius: 15%;
 }
 
@@ -35,7 +31,15 @@ p {
     font-style: bold;
 }
 
-button {
+#year {
+    padding-top: 20px;
+}
+
+#unemployment {
+    padding-bottom: 20px;
+}
+
+/* button {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 14px;
     border-radius: 5px;
@@ -44,8 +48,8 @@ button {
     color: beige;
     border-width: 1px;
     opacity: .75;
-}
+} */
 
-.hidden {
+/* .hidden {
     visibility: hidden;
-}
+} */
