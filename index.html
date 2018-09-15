@@ -135,7 +135,7 @@
             "56",
         ];
 
-        var input = prompt("Enter State Name");
+        var input = prompt(`Enter State Name`);
 
         var inputID = stateFIPS[stateNames.indexOf(input)];
 
@@ -147,12 +147,11 @@
 
         var year = "2017";
 
-
         function writePop(response) {
             var population = numeral(response[1][2]).format('0,0');
-            $("#year").append("<p>" + year + "</p>");
-            $("#geo-name").append("<h1>" + response[1][0] + "</h1>");
-            $("#population").append("<p>" + topDataLabel[0] + "</p><h2>" + population) + "<h2>";
+            $("#year").append(`<p>${year}</p>`);
+            $("#geo-name").append(`<h1>${response[1][0]}</h1>`);
+            $("#population").append(`<p>${topDataLabel[0]}</p><h2>${population}<h2>`);
 
             console.log(response);
         }
@@ -160,46 +159,37 @@
 
         function writeInc(response) {
             var income = numeral(response[1][2]).format('$0,0');
-            $("#income").append("<p>" + topDataLabel[1] + "</p><h2>" + income) + "<h2>";
-
+            $("#income").append(`<p>${topDataLabel[1]}</p><h2>${income}<h2>`);
             console.log(response);
         }
 
         function writeUnEmp(response) {
             var unemp = numeral((response[1][212]) / 100).format('0.0%');
-            $("#unemployment").append("<p>" + topDataLabel[2] + "</p><h2>" + unemp + "<h2>");
+            $("#unemployment").append(`<p>${topDataLabel[2]}</p><h2>${unemp}<h2>`);
 
             console.log(response);
         }
 
-        var queryURL = "https://api.census.gov/data/2017/acs/acs1?get=NAME,group(B01001)&for=state:" + inputID;
+        var queryURL = `https://api.census.gov/data/2017/acs/acs1?get=NAME,group(B01001)&for=state:${inputID}`;
 
-        var queryURL2 = "https://api.census.gov/data/2017/acs/acs1?get=NAME,group(B19013)&for=state:" + inputID;
+        var queryURL2 = `https://api.census.gov/data/2017/acs/acs1?get=NAME,group(B19013)&for=state:${inputID}`;
 
-        var queryURL3 = "https://api.census.gov/data/2017/acs/acs1/subject?get=NAME,group(S2301)&for=state:" + inputID;
+        var queryURL3 = `https://api.census.gov/data/2017/acs/acs1/subject?get=NAME,group(S2301)&for=state:${inputID}`;
 
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(writePop)
+        }).then(writePop);
 
         $.ajax({
             url: queryURL2,
             method: "GET"
-        }).then(writeInc)
+        }).then(writeInc);
 
         $.ajax({
             url: queryURL3,
             method: "GET"
-        }).then(writeUnEmp)
-
-
-
-
-
-
-
-
+        }).then(writeUnEmp);
 
     </script>
 </body>

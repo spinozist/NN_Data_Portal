@@ -13,6 +13,8 @@ $("document").ready(function () {
         "Unemployment Rate",
     ]
 
+    
+
     $("button").on("click", function () {
         var name = $("<h1>");
         var type = $("<h2>");
