@@ -554,17 +554,17 @@ window.onload = function () {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).done(writePop);
+        }).then(writePop);
 
         $.ajax({
             url: queryURL2,
             method: "GET"
-        }).done(writeInc);
+        }).then(writeInc);
 
         $.ajax({
             url: queryURL3,
             method: "GET"
-        }).done(writeUnEmp);
+        }).then(writeUnEmp);
 
 
 

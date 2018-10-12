@@ -14,6 +14,11 @@ select, option {
     font-size: 18px;
 }
 
+#title-box > h3 {
+    color: white;
+    line-height: 10px;
+}
+
 #submit-button {
     margin-top: 20px;
     width: 100px;
