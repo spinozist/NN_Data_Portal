@@ -53,7 +53,7 @@ h1, h2, h3, p {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 40px;
     color: rgb(22, 89, 167);
     font-style: bold;
 }
@@ -78,6 +78,10 @@ p {
     .container {
         width: 99%;
         margin-top: 5px;
+    }
+
+    h1 {
+        font-size: 36px;
     }
 }
 
