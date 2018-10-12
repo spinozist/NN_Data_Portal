@@ -1,8 +1,28 @@
 body {
     text-align: center;
-    background-color: white;
-    background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/uvwwIgO/rain-drop-with-street-colorful-traffic-lights-at-night-blur-bokeh-abstract-background-vintage-color-tone-cool-chill-wet-raining-season-concept_4wrtrqkqe__F0000.png);
+    background-color: black;
+    /* background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/uvwwIgO/rain-drop-with-street-colorful-traffic-lights-at-night-blur-bokeh-abstract-background-vintage-color-tone-cool-chill-wet-raining-season-concept_4wrtrqkqe__F0000.png); */
     background-size: cover;
+}
+
+input {
+    text-align: center;
+    height: 30px;
+    width: 80%;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#submit-button {
+    margin-top: 20px;
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    background-color: rgb(37, 45, 151);
 }
 
 .container {
@@ -11,7 +31,21 @@ body {
     width: 30%;
     margin: auto;
     margin-top: 30px;
-    border-radius: 15%;
+    border-radius: 10px;
+    /* padding: 10px; */
+}
+
+#search-box {
+    background-color: cadetblue;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#bottom {
+    background-color: cadetblue;
+    height: 20px;
+    border-radius: 0px 0px 10px 10px;
+
 }
 
 h1, h2, h3, p {
@@ -31,13 +65,14 @@ p {
     font-style: bold;
 }
 
-#year {
-    padding-top: 20px;
+#year > p {
+    font-size: 24px;
+    /* padding-top: 20px; */
 }
 
-#unemployment {
-    padding-bottom: 20px;
-}
+/* #unemployment {
+    padding-bottom: 10px;
+} */
 
 @media screen and (max-width: 768px) {
     .container {
