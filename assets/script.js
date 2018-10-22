@@ -486,7 +486,7 @@ window.onload = function () {
         32.8043209,
         31.5517733
     ]
-    
+
     var countyLongs = [
         null,
         -82.2901025,
@@ -662,6 +662,16 @@ window.onload = function () {
         2016,
         2017];
 
+    var chartYears = [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017];
+
     var selectYear = $(`#year-selector`);
     var selectCounty = $(`#county-selector`);
 
@@ -681,7 +691,20 @@ window.onload = function () {
         selectYear.append(el);
     };
 
+    var mymap = L.map('mapid').setView([0, 0], 10);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 16,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1Ijoic3Bpbm96aXN0IiwiYSI6ImNqMTJnNXEwejA2MzgzNHBlb2tsYWN2b2oifQ.YFeJxLzYtIs0ATq7AnUpyw'
+    }).addTo(mymap);
+
+
+
     $(`#submit-button`).on(`click`, function () {
+
+
 
         console.log(`button clicked`);
 
@@ -797,10 +820,8 @@ window.onload = function () {
 
         var year = $(`#year-selector option:selected`).val();
 
-        
-        // var popArray = [];
-
         var countyID = countyFIPS[countyGA.indexOf(input)]
+
         // var inputID = stateFIPS[stateNames.indexOf(input)];
 
         var mapLat = countyLats[countyGA.indexOf(input)];
@@ -835,59 +856,6 @@ window.onload = function () {
             console.log(response);
         };
 
-        // LEAFLET
-
-        var mymap = L.map('mapid').setView([mapLat, mapLong], 10);
-
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 16,
-            id: 'mapbox.streets',
-            accessToken: 'pk.eyJ1Ijoic3Bpbm96aXN0IiwiYSI6ImNqMTJnNXEwejA2MzgzNHBlb2tsYWN2b2oifQ.YFeJxLzYtIs0ATq7AnUpyw'
-        }).addTo(mymap);
-
-        // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        //     maxZoom: 18,
-        //     id: 'spinozist.bgqt0jyy',
-        //     accessToken: 'pk.eyJ1Ijoic3Bpbm96aXN0IiwiYSI6ImNqMTJnNXEwejA2MzgzNHBlb2tsYWN2b2oifQ.YFeJxLzYtIs0ATq7AnUpyw'
-        // }).addTo(mymap);
-
-        
-
-        
-
-        // function pushPop (response) {
-
-        //     var pop = Number(response[1][1]);
-
-        //     console.log(pop);
-        //     popArray.push(pop);
-        //     var chartData = {
-        //         type: 'bar',  // Specify your chart type here.
-        //         title: {
-        //           text: 'Population' // Adds a title to your chart
-        //         },
-        //         scaleX: {values: yearArray},                // legend: {}, // Creates an interactive legend
-        //         series: [{values: popArray}],
-        //       };
-        //       zingchart.render({ // Render Method[3]
-        //         id: 'chartDiv',
-        //         data: chartData,
-        //         // height: 400,
-        //         // width: 600
-        //       });
-        // }
-
-        // var chartData = {
-        //     type: 'line',  // Specify your chart type here.
-        //     title: {
-        //       text: 'Population' // Adds a title to your chart
-        //     },
-        //     scaleX: {values: yearArray},
-        //     // legend: {}, // Creates an interactive legend
-        //     series: [{values: popArray}],
-        //   };
 
         var queryURL = `https://api.census.gov/data/${year}/acs/acs1?get=NAME,B01001_001E&for=county:${countyID}&in=state:13`;
 
@@ -895,14 +863,6 @@ window.onload = function () {
 
         var queryURL3 = `https://api.census.gov/data/${year}/acs/acs1/subject?get=NAME,S2301_C04_001E&for=county:${countyID}&in=state:13`;
 
-
-        // for (i = 0; i < yearArray.length; i++) {
-        //     var queryURL4 = `https://api.census.gov/data/${yearArray[i]}/acs/acs1?get=NAME,B01001_001E&for=state:${inputID}`;
-        //     $.ajax({
-        //         url: queryURL4,
-        //         method: "GET"
-        //     }).done(pushPop)       
-        // };
 
         $.ajax({
             url: queryURL,
@@ -919,13 +879,61 @@ window.onload = function () {
             method: "GET"
         }).then(writeUnEmp);
 
+        // LEAFLET
 
+        $(`#map-container`).empty();
+        $(`#map-container`).html(`
+        <div id="mapid"></div>
+        `);
 
-        // zingchart.render({ // Render Method[3]
-        //     id: 'chartDiv',
-        //     data: chartData,
-        //     // height: 400,
-        //     // width: 600
-        //   });
+        var mymap = L.map('mapid').setView([mapLat, mapLong], 10);
+
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 16,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1Ijoic3Bpbm96aXN0IiwiYSI6ImNqMTJnNXEwejA2MzgzNHBlb2tsYWN2b2oifQ.YFeJxLzYtIs0ATq7AnUpyw'
+        }).addTo(mymap);
+        
+
+        // Chart JS
+
+        // var popArray = [];
+
+        // for (i = 0; i < chartYears.length; i++) {
+        //     var chartYear = chartYears[i]
+        //     $.ajax({
+        //         url: `https://api.census.gov/data/${chartYear}/acs/acs1?get=NAME,B01001_001E&for=county:${countyID}&in=state:13`,
+        //         method: "GET"
+        //     }).done(function (response) {
+        //         var pop = response[1][1];
+        //         console.log(`${chartYear}: ${pop}`);
+        //         popArray.splice(chartYears.indexOf(chartYear), 0, pop);
+        //     });
+        // };
+
+        // setTimeout (function(){
+        //     var ctx = document.getElementById('myChart').getContext('2d');
+
+        //     var chart = new Chart(ctx, {
+        //         // The type of chart we want to create
+        //         type: 'line',
+    
+        //         // The data for our dataset
+        //         data: {
+        //             labels: chartYears,
+        //             datasets: [{
+        //                 label: "My First dataset",
+        //                 backgroundColor: 'rgb(255, 99, 132)',
+        //                 borderColor: 'rgb(255, 99, 132)',
+        //                 data: popArray,
+        //             }]
+        //         },
+    
+        //         // Configuration options go here
+        //         options: {}
+        //     });
+        // }, 3000);
+
     });
 }

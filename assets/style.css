@@ -80,6 +80,11 @@ p {
     width: 100%; 
 }
 
+#myChart {
+    height: 400px;
+    width: 100%;
+}
+
 /* #unemployment {
     padding-bottom: 10px;
 } */
