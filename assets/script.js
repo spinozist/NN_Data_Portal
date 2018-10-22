@@ -662,15 +662,15 @@ window.onload = function () {
         2016,
         2017];
 
-    var chartYears = [
-        2010,
-        2011,
-        2012,
-        2013,
-        2014,
-        2015,
-        2016,
-        2017];
+//     var chartYears = [
+//         2010,
+//         2011,
+//         2012,
+//         2013,
+//         2014,
+//         2015,
+//         2016,
+//         2017];
 
     var selectYear = $(`#year-selector`);
     var selectCounty = $(`#county-selector`);
@@ -700,11 +700,7 @@ window.onload = function () {
         accessToken: 'pk.eyJ1Ijoic3Bpbm96aXN0IiwiYSI6ImNqMTJnNXEwejA2MzgzNHBlb2tsYWN2b2oifQ.YFeJxLzYtIs0ATq7AnUpyw'
     }).addTo(mymap);
 
-
-
     $(`#submit-button`).on(`click`, function () {
-
-
 
         console.log(`button clicked`);
 
