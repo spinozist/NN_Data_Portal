@@ -855,11 +855,11 @@ window.onload = function () {
         
         var apiKey = `106872a18b40c2368c03c0b84de5322f9e09b710`
 
-        var queryURL = `https://api.census.gov/data/${year}/acs1?acs/api_key=${apiKey}&get=NAME,B01001_001E&for=county:${countyID}&in=state:13`;
+        var queryURL = `https://api.census.gov/data/${year}/acs/acs1?key=${apiKey}&get=NAME,B01001_001E&for=county:${countyID}&in=state:13`;
 
-        var queryURL2 = `https://api.census.gov/data/${year}/acs/acs1?api_key=${apiKey}&get=NAME,B19013_001E&for=county:${countyID}&in=state:13`;
+        var queryURL2 = `https://api.census.gov/data/${year}/acs/acs1?key=${apiKey}&get=NAME,B19013_001E&for=county:${countyID}&in=state:13`;
 
-        var queryURL3 = `https://api.census.gov/data/${year}/acs/acs1/subject?api_key=${apiKey}&get=NAME,S2301_C04_001E&for=county:${countyID}&in=state:13`;
+        var queryURL3 = `https://api.census.gov/data/${year}/acs/acs1/subject?key=${apiKey}&get=NAME,S2301_C04_001E&for=county:${countyID}&in=state:13`;
 
 
         $.ajax({
