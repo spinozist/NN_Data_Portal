@@ -894,6 +894,8 @@ window.onload = function () {
             accessToken: 'pk.eyJ1Ijoic3Bpbm96aXN0IiwiYSI6ImNqMTJnNXEwejA2MzgzNHBlb2tsYWN2b2oifQ.YFeJxLzYtIs0ATq7AnUpyw'
         }).addTo(mymap);
         
+        L.mapbox.tileLayer('spinozist.7n99qr19').addTo(mymap);
+        
 //         mapboxgl.accessToken = 'pk.eyJ1Ijoic3Bpbm96aXN0IiwiYSI6ImNqMTJnNXEwejA2MzgzNHBlb2tsYWN2b2oifQ.YFeJxLzYtIs0ATq7AnUpyw';
 //         const map = new mapboxgl.Map({
 //         container: 'mapid',
