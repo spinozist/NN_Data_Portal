@@ -853,7 +853,7 @@ window.onload = function () {
         };
         
         
-        var apiKey = `MFl1ilvHnQIARSJNx8aEy6gz5zzsXXj4sqCeZPNY`
+        var apiKey = `106872a18b40c2368c03c0b84de5322f9e09b710`
 
         var queryURL = `https://api.census.gov/data/${year}/acs1?acs/api_key=${apiKey}&get=NAME,B01001_001E&for=county:${countyID}&in=state:13`;
 
