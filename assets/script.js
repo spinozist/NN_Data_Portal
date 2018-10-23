@@ -889,7 +889,7 @@ window.onload = function () {
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 16,
-            id: 'mapbox.streets',
+            id: 'spinozist.7n99qr19',
             style: 'mapbox://styles/spinozist/cjnc5g98p00ep2rqiyb9i35zp',
             accessToken: 'pk.eyJ1Ijoic3Bpbm96aXN0IiwiYSI6ImNqMTJnNXEwejA2MzgzNHBlb2tsYWN2b2oifQ.YFeJxLzYtIs0ATq7AnUpyw'
         }).addTo(mymap);
